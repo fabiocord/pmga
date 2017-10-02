@@ -1,0 +1,30 @@
+<ng2-toasty [position]="'top-right'"></ng2-toasty>
+<div class='container-fluid'>
+    <div class="layout-wrapper">
+        <div class="ng-tns-c0-0" id="layout-topbar">
+            <a  class="menu-button" href="#">
+                <i class="fa fa-bars"></i>
+            </a>
+        </div>
+        <div  class="ng-tns-c0-0" id="layout-sidebar">
+            <nav-menu></nav-menu>
+        </div>
+        <div class="ng-tns-c0-0" id="layout-content">
+             <div class='col-sm-9 body-content'>
+                <router-outlet></router-outlet>
+            </div>
+        </div>         
+
+    </div>
+    
+   
+    <!-- <div class='row'>
+        <div class='col-sm-3'>
+            
+            <app-newnavmenu></app-newnavmenu>
+        </div>
+        <div class='col-sm-9 body-content'>
+            <router-outlet></router-outlet>
+        </div>
+    </div> -->
+</div>

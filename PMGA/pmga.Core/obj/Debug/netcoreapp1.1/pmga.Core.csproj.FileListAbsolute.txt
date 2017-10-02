@@ -1,0 +1,14 @@
+E:\Desenvolvimento\pmga\pmga.Core\bin\Debug\netcoreapp1.1\pmga.Core.deps.json
+E:\Desenvolvimento\pmga\pmga.Core\bin\Debug\netcoreapp1.1\pmga.Core.dll
+E:\Desenvolvimento\pmga\pmga.Core\bin\Debug\netcoreapp1.1\pmga.Core.pdb
+E:\Desenvolvimento\pmga\pmga.Core\obj\Debug\netcoreapp1.1\pmga.Core.AssemblyInfo.cs
+E:\Desenvolvimento\pmga\pmga.Core\obj\Debug\netcoreapp1.1\pmga.Core.dll
+E:\Desenvolvimento\pmga\pmga.Core\obj\Debug\netcoreapp1.1\pmga.Core.pdb
+E:\Desenvolvimento\pmga\pmga.Core\obj\Debug\netcoreapp1.1\pmga.Core.csprojResolveAssemblyReference.cache
+E:\Desenvolvimento\Trabalho\PMGA\pmga.Core\bin\Debug\netcoreapp1.1\pmga.Core.deps.json
+E:\Desenvolvimento\Trabalho\PMGA\pmga.Core\bin\Debug\netcoreapp1.1\pmga.Core.dll
+E:\Desenvolvimento\Trabalho\PMGA\pmga.Core\bin\Debug\netcoreapp1.1\pmga.Core.pdb
+E:\Desenvolvimento\Trabalho\PMGA\pmga.Core\obj\Debug\netcoreapp1.1\pmga.Core.AssemblyInfo.cs
+E:\Desenvolvimento\Trabalho\PMGA\pmga.Core\obj\Debug\netcoreapp1.1\pmga.Core.dll
+E:\Desenvolvimento\Trabalho\PMGA\pmga.Core\obj\Debug\netcoreapp1.1\pmga.Core.pdb
+E:\Desenvolvimento\Trabalho\PMGA\pmga.Core\obj\Debug\netcoreapp1.1\pmga.Core.csprojResolveAssemblyReference.cache

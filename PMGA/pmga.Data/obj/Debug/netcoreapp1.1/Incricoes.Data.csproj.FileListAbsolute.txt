@@ -1,0 +1,9 @@
+G:\Desenvolvimento\projetos-dotnet\Incricoes.Data\bin\Debug\netcoreapp1.1\Incricoes.Data.deps.json
+G:\Desenvolvimento\projetos-dotnet\Incricoes.Data\bin\Debug\netcoreapp1.1\Incricoes.Data.dll
+G:\Desenvolvimento\projetos-dotnet\Incricoes.Data\bin\Debug\netcoreapp1.1\Incricoes.Data.pdb
+G:\Desenvolvimento\projetos-dotnet\Incricoes.Data\bin\Debug\netcoreapp1.1\Inscricoes.Core.dll
+G:\Desenvolvimento\projetos-dotnet\Incricoes.Data\bin\Debug\netcoreapp1.1\Inscricoes.Core.pdb
+G:\Desenvolvimento\projetos-dotnet\Incricoes.Data\obj\Debug\netcoreapp1.1\Incricoes.Data.csprojResolveAssemblyReference.cache
+G:\Desenvolvimento\projetos-dotnet\Incricoes.Data\obj\Debug\netcoreapp1.1\Incricoes.Data.AssemblyInfo.cs
+G:\Desenvolvimento\projetos-dotnet\Incricoes.Data\obj\Debug\netcoreapp1.1\Incricoes.Data.dll
+G:\Desenvolvimento\projetos-dotnet\Incricoes.Data\obj\Debug\netcoreapp1.1\Incricoes.Data.pdb

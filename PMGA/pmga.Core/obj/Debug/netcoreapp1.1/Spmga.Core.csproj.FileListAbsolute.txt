@@ -1,0 +1,6 @@
+E:\Desenvolvimento\pmga\pmga.Core\bin\Debug\netcoreapp1.1\pmga.Core.deps.json
+E:\Desenvolvimento\pmga\pmga.Core\bin\Debug\netcoreapp1.1\pmga.Core.dll
+E:\Desenvolvimento\pmga\pmga.Core\bin\Debug\netcoreapp1.1\pmga.Core.pdb
+E:\Desenvolvimento\pmga\pmga.Core\obj\Debug\netcoreapp1.1\pmga.Core.AssemblyInfo.cs
+E:\Desenvolvimento\pmga\pmga.Core\obj\Debug\netcoreapp1.1\pmga.Core.dll
+E:\Desenvolvimento\pmga\pmga.Core\obj\Debug\netcoreapp1.1\pmga.Core.pdb

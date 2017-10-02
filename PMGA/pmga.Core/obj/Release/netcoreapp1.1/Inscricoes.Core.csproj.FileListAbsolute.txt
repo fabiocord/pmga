@@ -1,0 +1,6 @@
+E:\Desenvolvimento\projetos-dotnet\Inscricoes.Core\bin\Release\netcoreapp1.1\Inscricoes.Core.deps.json
+E:\Desenvolvimento\projetos-dotnet\Inscricoes.Core\bin\Release\netcoreapp1.1\Inscricoes.Core.dll
+E:\Desenvolvimento\projetos-dotnet\Inscricoes.Core\bin\Release\netcoreapp1.1\Inscricoes.Core.pdb
+E:\Desenvolvimento\projetos-dotnet\Inscricoes.Core\obj\Release\netcoreapp1.1\Inscricoes.Core.AssemblyInfo.cs
+E:\Desenvolvimento\projetos-dotnet\Inscricoes.Core\obj\Release\netcoreapp1.1\Inscricoes.Core.dll
+E:\Desenvolvimento\projetos-dotnet\Inscricoes.Core\obj\Release\netcoreapp1.1\Inscricoes.Core.pdb

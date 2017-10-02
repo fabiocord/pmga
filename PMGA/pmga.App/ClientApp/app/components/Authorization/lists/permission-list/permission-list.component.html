@@ -1,0 +1,12 @@
+ <app-generic-tree-view
+  [nodes] = "tree" 
+  [titulo] = "titulo" 
+  (Incluir)="onIncluir($event)"
+  (Editar)="onEditar($event)"
+  (Excluir)="onExcluir($event)"
+></app-generic-tree-view> 
+
+<p-growl [value]="msgs"></p-growl>
+    
+<p-confirmDialog acceptLabel="Sim" rejectLabel="Não"></p-confirmDialog>
+  

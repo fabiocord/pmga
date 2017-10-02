@@ -1,0 +1,20 @@
+@media (max-width: 767px) {
+    /* On small screens, the nav menu spans the full width of the screen. Leave a space for it. */
+    .body-content {
+        padding-top: 50px;
+    }
+
+    #layout-topbar {
+    background-color: #20272a;
+    display: block;
+    padding: 0;
+    height: 70px;
+    box-sizing: border-box;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999999;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,.3);
+}
+}

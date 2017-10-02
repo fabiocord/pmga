@@ -1,0 +1,14 @@
+G:\Desenvolvimento\projetos-dotnet\Inscricoes.Core\bin\Debug\netcoreapp1.1\Inscricoes.Core.deps.json
+G:\Desenvolvimento\projetos-dotnet\Inscricoes.Core\bin\Debug\netcoreapp1.1\Inscricoes.Core.dll
+G:\Desenvolvimento\projetos-dotnet\Inscricoes.Core\bin\Debug\netcoreapp1.1\Inscricoes.Core.pdb
+G:\Desenvolvimento\projetos-dotnet\Inscricoes.Core\obj\Debug\netcoreapp1.1\Inscricoes.Core.AssemblyInfo.cs
+G:\Desenvolvimento\projetos-dotnet\Inscricoes.Core\obj\Debug\netcoreapp1.1\Inscricoes.Core.dll
+G:\Desenvolvimento\projetos-dotnet\Inscricoes.Core\obj\Debug\netcoreapp1.1\Inscricoes.Core.pdb
+G:\Desenvolvimento\projetos-dotnet\Inscricoes.Core\obj\Debug\netcoreapp1.1\Inscricoes.Core.csprojResolveAssemblyReference.cache
+E:\Desenvolvimento\projetos-dotnet\Inscricoes.Core\bin\Debug\netcoreapp1.1\Inscricoes.Core.deps.json
+E:\Desenvolvimento\projetos-dotnet\Inscricoes.Core\bin\Debug\netcoreapp1.1\Inscricoes.Core.dll
+E:\Desenvolvimento\projetos-dotnet\Inscricoes.Core\bin\Debug\netcoreapp1.1\Inscricoes.Core.pdb
+E:\Desenvolvimento\projetos-dotnet\Inscricoes.Core\obj\Debug\netcoreapp1.1\Inscricoes.Core.AssemblyInfo.cs
+E:\Desenvolvimento\projetos-dotnet\Inscricoes.Core\obj\Debug\netcoreapp1.1\Inscricoes.Core.dll
+E:\Desenvolvimento\projetos-dotnet\Inscricoes.Core\obj\Debug\netcoreapp1.1\Inscricoes.Core.pdb
+E:\Desenvolvimento\projetos-dotnet\Inscricoes.Core\obj\Debug\netcoreapp1.1\Inscricoes.Core.csprojResolveAssemblyReference.cache
