@@ -1,0 +1,13 @@
+<div>
+    <div style="width:100%">
+        <p-tree [value]="nodes" selectionMode="single" [(selection)]="selectedFile" 
+            (onNodeSelect)="nodeSelect($event)" (onNodeUnselect)="nodeUnselect($event)" [style]="{'width':'100%'}"></p-tree>
+        <!-- <div style="margin-top:8px">Selected Node: {{selectedFile ? selectedFile.data.description : 'none'}}</div> -->
+    </div>
+    <br>
+    <div style="width:100%">
+        <button type="button" class="btn btn-success btn-with-icon btn-sm" (click)="onInclude(selectedFile ? selectedFile.data : null)" [disabled]="selectedFile ? false : true"><i class="ion-plus"></i>Incluir</button>
+        <button type="button" class="btn btn-info btn-with-icon btn-sm" (click)="onEdit(selectedFile ? selectedFile.data : null)" [disabled]="selectedFile ? false : true"><i class="ion-edit"></i>Editar</button>
+        <button type="button" class="btn btn-danger btn-with-icon btn-sm" (click)="onDelete(selectedFile ? selectedFile.data : null)" [disabled]="selectedFile ? false : true"><i class="ion-trash-b"></i>Excluir</button>
+    </div>
+</div>

@@ -1,0 +1,55 @@
+ <div class="modal-content">
+  <div class="modal-header" style="background-color: #e9fcd4;border-bottom: ridge">
+    <h4 class="modal-title">{{modalHeader}}</h4>
+    <button class="close" aria-label="Close" (click)="closeModal()">
+      <span aria-hidden="true">&times;</span>
+    </button>    
+  </div>  
+  
+  <form style="padding: 1px 20px 1px 20px" #f="ngForm" (ngSubmit)="submit()" novalidate>
+    <p-tabView>
+      <p-tabPanel header="Dados">  
+        <div class="modal-body">    
+            <div class="form-group">
+                <label for="nome">Nome</label>
+                <input id="nome" class="form-control" name="nome" type="text" [(ngModel)]="role.nome" required placeholder="Preencha...">
+            </div>
+            <div class="form-group">
+                <label for="description">Descrição</label>
+                <input id="description" class="form-control" name="description" type="text" [(ngModel)]="role.description" placeholder="Preencha...">
+            </div>
+            <div class="form-group">
+              <label for="calend">Data de Criação</label>  
+              <div id="calend">
+                <p-calendar id="creationDate" name="creationDate" [(ngModel)]="role.creationDate" [locale]="ptbr" placeholder="Selecione..." dateFormat="dd.mm.yy" [showIcon]="true"></p-calendar>
+              </div>              
+            </div>
+              
+            <div class="form-group">
+                <label for="status">Status</label>
+                <div id="status" name="status">
+                  <label for="active">
+                    <input type="radio" name="active" id="active" [value]="true"  [(ngModel)]="role.active"> Ativado
+                  </label>
+                  <label for="naoAtivo">
+                    <input type="radio" name="active" id="naoAtivo" [value]="false" [(ngModel)]="role.active"> Desativado
+                  </label>     
+                </div>
+            </div>              
+        </div>
+      </p-tabPanel>
+      <p-tabPanel header="Permissões">  
+         <app-generic-tree-view-checks
+        [nodes] = "nodes" 
+        [selectedNodes] = "selectedNodes"  
+        (getNodesSelected) = "getNodesSelected($event)"     
+        >
+        </app-generic-tree-view-checks>       
+      </p-tabPanel>      
+    </p-tabView>  
+    <div class="modal-footer" style="border-top: ridge"  >
+        <button class="btn btn-primary confirm-btn" [disabled]="!f.valid">Salvar</button>
+    </div>
+  </form >
+
+</div>  

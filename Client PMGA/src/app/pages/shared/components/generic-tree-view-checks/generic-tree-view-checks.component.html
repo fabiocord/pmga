@@ -1,0 +1,12 @@
+<div style="width:100%">
+  <!-- <div *ngFor="let element of selectedNodes">
+ <ul>label: {{element.label}}
+    <li>expandedIcon: {{element.expandedIcon}}</li>
+    <li> expanded: {{element.expanded}}</li>
+    <li> collapsedIcon: {{element.collapsedIcon}}</li>
+    <li> children: {{element.children}} </li>
+    <li> data: {{element.data}} </li>
+  </ul>   
+  </div> -->
+  <p-tree [value]="nodes" selectionMode="checkbox" [(selection)]="selectedNodes" (onNodeSelect)="nodeSelect($event)" (onNodeUnselect)="nodeSelect($event)"></p-tree>
+</div>

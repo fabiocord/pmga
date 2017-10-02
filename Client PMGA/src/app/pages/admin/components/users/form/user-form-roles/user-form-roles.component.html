@@ -1,0 +1,20 @@
+<div class="form-group">              
+    <label for="rolesg">Regras</label>
+     <div id="rolesg" name="rolesg">      
+      <p-multiSelect defaultLabel= "Selecione..." [options]="roles" [(ngModel)]="selectedRoles" (onChange)="createNodes()"></p-multiSelect>
+    </div> 
+    <div *ngIf="selectedRoles.length > 0">  
+      <br>
+      <p>Lista de Permissões por Regras:</p>  
+      
+      <div class="row">
+          <div class="col-sm-6" *ngFor="let s of rolesPermissions">
+              <p>{{s.id}}- {{s.nome}}</p>
+            <div class="form-group">            
+              <div style="width:100%">
+                  <p-tree [value]="s.nodes" [style]="{'width':'100%'}"></p-tree>                  
+              </div>            
+          </div>     
+      </div>      
+    </div>
+</div> 

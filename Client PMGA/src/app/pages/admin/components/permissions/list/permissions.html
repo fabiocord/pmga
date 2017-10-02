@@ -1,0 +1,16 @@
+<ng2-toasty [position]="'top-right'"></ng2-toasty> 
+<div>
+  <div class="col-md-3">
+     <ba-card  cardTitle="Permissões"> <!-- cardTitle="tree_view.title" -->
+      <app-generic-tree-view
+        [nodes] = "tree"   
+        (incluir)="onIncluir($event)"
+        (editar)="onEditar($event)"
+        (excluir)="onExcluir($event)"
+      ></app-generic-tree-view>     
+    </ba-card>
+  </div>
+  <p-growl [value]="msgs"></p-growl>        
+</div>
+
+<p-confirmDialog acceptLabel="Sim" rejectLabel="Não"></p-confirmDialog> 

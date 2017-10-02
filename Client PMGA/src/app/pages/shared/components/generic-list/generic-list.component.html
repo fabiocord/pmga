@@ -1,0 +1,19 @@
+<div class="widgets">
+
+  <div class="row">
+    <ba-card cardTitle="{{title}}" baCardClass="with-scroll" class="smart-table-container">
+       <button type="button" class="btn btn-primary btn-with-icon btn-m" (click)="onIncludeClick()"><i class="ion-plus"></i>Incluir</button>
+      <br><br>  
+      <div class="input-group">
+        <span class="input-group-addon" id="basic-addon1"><span class="ion-search"></span></span>
+        <input #search class="search" type="text" placeholder="Pesquisar..." (input)="onSearch(search.value)">
+      </div>      
+      <ng2-smart-table [settings]="settings" [source]="source" (delete)="onDeleteConfirm($event)"  (edit)="onEdit($event)"></ng2-smart-table>
+      <br>
+      <div class="center" align="center" style="width: auto;">        
+        <pagination class="center" [total-items]="totalItems" [page-size]="query.pageSize" (page-changed)="onPageChange($event)"></pagination>
+      </div>
+    </ba-card>
+  </div>
+
+</div>

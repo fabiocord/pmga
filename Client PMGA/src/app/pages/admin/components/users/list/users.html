@@ -1,0 +1,16 @@
+<ng2-toasty [position]="'top-right'"></ng2-toasty> 
+<app-generic-list
+ [totalItems] = "totalItems"
+ [query] = "query"
+ [title] = "title"
+ [columns] = "columns" 
+ [source] = "source"
+ (onDelete) = "onDelete($event)"
+ (onInclude) = "onInclude()"
+ (onEdicao) = "onEdit($event)"
+ (onSearchFilter) = "onSearch($event)"
+ (atualizaDados) = "onAtualizaDados($event)"
+ >
+</app-generic-list>
+<p-growl [value]="msgs"></p-growl>  
+<p-confirmDialog acceptLabel="Sim" rejectLabel="Não"></p-confirmDialog> 

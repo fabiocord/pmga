@@ -1,0 +1,139 @@
+<div class="modal-content">
+  <div class="modal-header" style="background-color: #e9fcd4;border-bottom: ridge">
+    <h4 class="modal-title">{{modalHeader}}</h4>
+    <button class="close" aria-label="Close" (click)="closeModal()">
+      <span aria-hidden="true">&times;</span>
+    </button>    
+  </div>  
+  
+  <form [formGroup]="userForm" style="padding: 1px 20px 1px 20px" (ngSubmit)="submit()" novalidate>    
+    <p-tabView>
+      <p-tabPanel header="Dados">  
+        <div class="modal-body">    
+            <div class="form-group">
+                <label for="nome">Nome</label>                
+                <input id="nome" class="form-control" formControlName="nome" name="nome" type="text" [(ngModel)]="user.nome" placeholder="Preencha..."  ><!-- #fdiv -->
+                  <control-messages [control]="userForm.controls.nome"></control-messages> 
+            </div>
+            <div class="form-group">
+                <label for="email">E-mail</label>
+                <input id="email" class="form-control" formControlName="email" name="email" type="text" [(ngModel)]="user.email" placeholder="Preencha...">
+                 <control-messages [control]="userForm.controls.email"></control-messages> 
+            </div>
+            
+            <div class="form-group">
+              <label for="calend">Data de Nascimento</label>  
+              <div id="calend">
+                <p-calendar id="dataNascimento" formControlName="dataNascimento" name="dataNascimento" [(ngModel)]="user.dataNascimento" [locale]="ptbr" placeholder="Selecione..." dateFormat="dd.mm.yy" [showIcon]="true"></p-calendar>
+                 <control-messages [control]="userForm.controls.dataNascimento"></control-messages> 
+              </div>              
+            </div>
+            <div class="form-group">
+              <label for="doc">CPF</label>
+                <div id="doc">
+                  <p-inputMask id="documento" formControlName="documento" name="documento" [(ngModel)]="user.documento" mask="999.999.999-99" unmask="true"></p-inputMask>
+                  <control-messages [control]="userForm.controls.documento"></control-messages>                   
+                </div>
+            </div>
+            <div class="form-group">
+              <label for="tel1">Telefone Res.</label>
+                <div id="tel1">
+                  <p-inputMask id="telefone1" formControlName="telefone1" name="telefone1" [(ngModel)]="user.telefone1" mask="(99)9999-9999"  unmask="true"></p-inputMask>              
+                   <control-messages [control]="userForm.controls.telefone1"></control-messages> 
+                </div>
+            </div>
+            <div class="form-group">
+              <label for="tele2">Telefone Móvel</label>
+              <div id="tele2">              
+                <p-inputMask id="telefone2" formControlName="telefone2" name="telefone2" [(ngModel)]="user.telefone2" mask="(99)99999-9999"  unmask="true"></p-inputMask>              
+              </div>  
+            </div>
+            <div class="form-group">
+              <label for="cepd">CEP</label>
+              <div id="cepd">
+                <p-inputMask id="cep" formControlName="cep" name="cep" [(ngModel)]="user.cep" mask="99999-999"  unmask="true" (onComplete)="buscaCep()"></p-inputMask>              
+                 <control-messages [control]="userForm.controls.cep"></control-messages> 
+              </div>  
+            </div> 
+             <div class="form-group">
+                <label for="logradouro">Logradouro</label>
+                <input id="logradouro" class="form-control" formControlName="logradouro" name="logradouro" type="text" [(ngModel)]="user.logradouro" placeholder="Preencha...">
+                 <control-messages [control]="userForm.controls.logradouro"></control-messages> 
+            </div>       
+            <div class="form-group">
+                <label for="complemento">Complemento</label>
+                <input id="complemento" class="form-control" formControlName="complemento" name="complemento" type="text" [(ngModel)]="user.complemento" placeholder="Preencha...">
+            </div>       
+            <div class="form-group">
+                <label for="bairro">Bairro</label>
+                <input id="bairro" class="form-control" formControlName="bairro" name="bairro" type="text" [(ngModel)]="user.bairro" placeholder="Preencha...">
+                 <control-messages [control]="userForm.controls.bairro"></control-messages> 
+            </div>         
+            <div class="form-group">
+                <label for="cidade">Cidade</label>
+                <input id="cidade" class="form-control" formControlName="cidade" name="cidade" type="text" [(ngModel)]="user.cidade" placeholder="Preencha...">
+                 <control-messages [control]="userForm.controls.cidade"></control-messages> 
+            </div>  
+            <div class="form-group">
+                <label for="uf">UF</label>
+                <input id="uf" class="form-control" formControlName="uf" name="uf" type="text" [(ngModel)]="user.uf" placeholder="Preencha...">
+                 <control-messages [control]="userForm.controls.uf"></control-messages> 
+            </div>              
+            <div class="form-group">
+                <label for="confirmaEmail">Email de confirmação</label>
+                <div id="confirmaEmail" name="confirmaEmail">
+                  <label for="confirmEmailAtivo">
+                    <input type="radio" formControlName="confirmEmail" name="confirmEmail" id="confirmEmailAtivo" [value]="true"  [(ngModel)]="user.confirmEmail"> Ativado
+                  </label>
+                  <label for="confirmEmailNaoAtivo">
+                    <input type="radio" formControlName="confirmEmail" name="confirmEmail" id="confirmEmailNaoAtivo" [value]="false" [(ngModel)]="user.confirmEmail"> Desativado
+                  </label>
+                   <control-messages [control]="userForm.controls.confirmEmail"></control-messages>      
+                </div>
+            </div>                
+                                     
+            <div class="form-group">
+                <label for="status">Status</label>
+                <div id="status" name="status">
+                  <label for="ativo">
+                    <input type="radio" formControlName="active" name="active" id="active" [value]="true"  [(ngModel)]="user.active"> Ativado
+                  </label>
+                  <label for="naoAtivo">
+                    <input type="radio" formControlName="active" name="active" id="naoAtivo" [value]="false" [(ngModel)]="user.active"> Desativado
+                  </label>     
+                   <control-messages [control]="userForm.controls.active"></control-messages> 
+                </div>
+            </div>  
+        </div>
+      </p-tabPanel>
+      <p-tabPanel header="Regras"> 
+        <div *ngIf="((selectedRoles.length > 0) && (user.id > 0)) || (user.id == 0) || ((user.id > 0) && (user.roles))">
+          <app-user-form-roles   
+          [selectedRoles] = "selectedRoles"
+          (populatePermissionsTab) = "populatePermissionsTab($event)"
+          (setUserRoles) = "setUserRoles($event)"
+          ></app-user-form-roles>
+        </div> 
+      </p-tabPanel>    
+      <p-tabPanel header="Permissões">  
+          <app-generic-tree-view-checks
+          [nodes] = "nodes" 
+          [selectedNodes] = "selectedNodes"  
+          (getNodesSelected) = "setNodesSelected($event)"     
+          >          
+          </app-generic-tree-view-checks>       
+        <!-- <app-user-form-permissions
+        [selectedNodes] = "selectedNodes"
+        [permissions]= "permissions"
+        (setPermissionsOnParent) = "setUserPermissions($event)"
+        ></app-user-form-permissions> -->
+      </p-tabPanel>      
+    </p-tabView>  
+    <div class="modal-footer" style="border-top: ridge"  >
+        <!-- <p>{{userForm.nome}}</p> -->
+        <button class="btn btn-primary confirm-btn" [disabled]="!userForm.valid">Salvar</button>
+    </div>
+  </form >
+  <p-growl [(value)]="msgs"></p-growl>
+
+</div>  
