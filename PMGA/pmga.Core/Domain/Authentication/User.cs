@@ -43,13 +43,12 @@ namespace pmga.Core.Domain.Authentication
         public int FacebookId { get; set; }   
         [Required]     
         public string Password { get; set; }
-        public ICollection<UserPermission> Permissions {get; set;}
-        public ICollection<UserRole> Roles {get; set;}
-
+        public int RoleId {get; set;}
+        public Role Role {get; set;}
+        public ICollection<UserPermission> Permissions {get; set;}        
         public User()
         {
-            Permissions = new Collection<UserPermission>();            
-            Roles = new Collection<UserRole>();
+            Permissions = new Collection<UserPermission>();                        
         }
         
     }

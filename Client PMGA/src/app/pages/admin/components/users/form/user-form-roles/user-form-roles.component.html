@@ -1,20 +1,19 @@
-<div class="form-group">              
-    <label for="rolesg">Regras</label>
-     <div id="rolesg" name="rolesg">      
-      <p-multiSelect defaultLabel= "Selecione..." [options]="roles" [(ngModel)]="selectedRoles" (onChange)="createNodes()"></p-multiSelect>
-    </div> 
-    <div *ngIf="selectedRoles.length > 0">  
-      <br>
-      <p>Lista de Permissões por Regras:</p>  
-      
-      <div class="row">
-          <div class="col-sm-6" *ngFor="let s of rolesPermissions">
-              <p>{{s.id}}- {{s.nome}}</p>
-            <div class="form-group">            
-              <div style="width:100%">
-                  <p-tree [value]="s.nodes" [style]="{'width':'100%'}"></p-tree>                  
-              </div>            
-          </div>     
-      </div>      
-    </div>
+<div class="form-group" [formGroup]="group">        
+    <label for="roles">Regras</label>     
+        <!-- <p-dropdown [options]="roles" [(ngModel)]="selectedRole" (onChange)="createNodes()" placeholder="Selecione..."></p-dropdown> -->
+    <select id="roles" class="form-control" (change)="createNodes()" formControlName="roles" [(ngModel)]="selectedRole" name="roles" placeholder="Selecione...">
+            <option value=""></option>
+            <option *ngFor="let m of roles" value="{{ m.id }}">{{ m.nome }}</option>
+    </select>
+    <control-messages [control]="group.controls.roles"></control-messages> 
+    
+    <br>
+    <div>
+        <app-generic-tree-view-checks
+        [nodes] = "nodes" 
+        [selectedNodes] = "selectedNodes"  
+        (getNodesSelected) = "setNodesSelected($event)"     
+        >          
+        </app-generic-tree-view-checks>     
+    </div>    
 </div> 

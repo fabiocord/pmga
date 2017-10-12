@@ -4,7 +4,7 @@ import { FormGroup,FormControl } from "@angular/forms";
 
 @Component({
   selector: 'control-messages',  
-  template: `<div *ngIf="errorMessage !== null">{{errorMessage}}</div>` ,
+  template: `<div class="alert alert-danger" *ngIf="errorMessage !== null">{{errorMessage}}</div>` ,
   
 })
 export class ControlMessagesComponent{

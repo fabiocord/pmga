@@ -26,12 +26,11 @@ namespace pmga.Controllers.Resources.Authentication.Saves
         public int FacebookId { get; set; }        
         public string Password { get; set; }
         public ICollection<int> Permissions {get; set;}
-        public ICollection<int> Roles {get; set;}
+        public int RoleId {get; set;}
 
         public SaveUserResource()
         {
             Permissions = new Collection<int>();            
-            Roles = new Collection<int>();
         }
     }
 }

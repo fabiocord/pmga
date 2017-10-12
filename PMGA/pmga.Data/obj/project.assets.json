@@ -8140,10 +8140,10 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\Desenvolvimento\\Trabalho\\PMGA\\pmga.Data\\pmga.Data.csproj",
+      "projectUniqueName": "E:\\Desenvolvimento\\Trabalho\\ProjetoBaseZero\\pmga\\PMGA\\pmga.Data\\pmga.Data.csproj",
       "projectName": "pmga.Data",
-      "projectPath": "E:\\Desenvolvimento\\Trabalho\\PMGA\\pmga.Data\\pmga.Data.csproj",
-      "outputPath": "E:\\Desenvolvimento\\Trabalho\\PMGA\\pmga.Data\\obj\\",
+      "projectPath": "E:\\Desenvolvimento\\Trabalho\\ProjetoBaseZero\\pmga\\PMGA\\pmga.Data\\pmga.Data.csproj",
+      "outputPath": "E:\\Desenvolvimento\\Trabalho\\ProjetoBaseZero\\pmga\\PMGA\\pmga.Data\\obj\\",
       "projectStyle": "PackageReference",
       "originalTargetFrameworks": [
         "netcoreapp1.1"
@@ -8151,8 +8151,8 @@
       "frameworks": {
         "netcoreapp1.1": {
           "projectReferences": {
-            "E:\\Desenvolvimento\\Trabalho\\PMGA\\pmga.Core\\pmga.Core.csproj": {
-              "projectPath": "E:\\Desenvolvimento\\Trabalho\\PMGA\\pmga.Core\\pmga.Core.csproj"
+            "E:\\Desenvolvimento\\Trabalho\\ProjetoBaseZero\\pmga\\PMGA\\pmga.Core\\pmga.Core.csproj": {
+              "projectPath": "E:\\Desenvolvimento\\Trabalho\\ProjetoBaseZero\\pmga\\PMGA\\pmga.Core\\pmga.Core.csproj"
             }
           }
         }

@@ -28,10 +28,9 @@ namespace pmga.Data.Infrastructure
                 return await context.Users
                 .Include(u => u.Permissions)
                     .ThenInclude(up => up.Permission)
-                .Include(u => u.Roles)
-                    .ThenInclude(ur => ur.Role)
-                        .ThenInclude(rp => rp.Permissions)
-                            .ThenInclude(p => p.Permission)
+                .Include(u => u.Role)
+                    .ThenInclude(ur => ur.Permissions)                        
+                        .ThenInclude(p => p.Permission)
                 .SingleOrDefaultAsync(u => u.Id == id);
         }
 

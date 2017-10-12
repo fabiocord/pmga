@@ -106,30 +106,19 @@
             </div>  
         </div>
       </p-tabPanel>
-      <p-tabPanel header="Regras"> 
-        <div *ngIf="((selectedRoles.length > 0) && (user.id > 0)) || (user.id == 0) || ((user.id > 0) && (user.roles))">
-          <app-user-form-roles   
-          [selectedRoles] = "selectedRoles"
-          (populatePermissionsTab) = "populatePermissionsTab($event)"
-          (setUserRoles) = "setUserRoles($event)"
+      <p-tabPanel header="Regras & Permissões"> 
+        <div *ngIf="((isEditLoaded) && (user.id > 0)) || (user.id == 0) ">
+          <app-user-form-roles 
+          [group]="userForm"  
+          [selectedRole] = "selectedRole"
+          [selectedPermissions] = "user.permissions"
+          (setUserRole) = "setUserRole($event)"
+          (setUserPermissions) = "setUserPermissions($event)"
           ></app-user-form-roles>
-        </div> 
-      </p-tabPanel>    
-      <p-tabPanel header="Permissões">  
-          <app-generic-tree-view-checks
-          [nodes] = "nodes" 
-          [selectedNodes] = "selectedNodes"  
-          (getNodesSelected) = "setNodesSelected($event)"     
-          >          
-          </app-generic-tree-view-checks>       
-        <!-- <app-user-form-permissions
-        [selectedNodes] = "selectedNodes"
-        [permissions]= "permissions"
-        (setPermissionsOnParent) = "setUserPermissions($event)"
-        ></app-user-form-permissions> -->
-      </p-tabPanel>      
-    </p-tabView>  
-    <div class="modal-footer" style="border-top: ridge"  >
+        </div>
+      </p-tabPanel>
+    </p-tabView>     
+    <div class="modal-footer" style="border-top: ridge">
         <!-- <p>{{userForm.nome}}</p> -->
         <button class="btn btn-primary confirm-btn" [disabled]="!userForm.valid">Salvar</button>
     </div>

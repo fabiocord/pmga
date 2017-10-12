@@ -1,3 +1,4 @@
+import { TreeNode } from 'primeng/primeng';
 import { Injectable } from '@angular/core';
 
 @Injectable()
@@ -38,5 +39,46 @@ export class UtilsService {
     if (rev != parseInt(cpf.charAt(10)))
         return false;       
     return true; 
+  }
+
+
+  public static findRecursiveNode(nodes,id,selectedNodes) {        
+    for(var element of nodes)
+    {
+      if (element.data.id == id){ 
+        selectedNodes.push(element);
+        break;               
+      }        
+      if (element.children)
+        this.findRecursiveNode(element.children,id,selectedNodes)
+    } 
+    return selectedNodes;   
+  }
+
+  public static expandaAll(nodes){
+    nodes.forEach( node => {
+      this.expandRecursive(node, true);
+    } );
+    return nodes;
+  }
+
+  private static expandRecursive(node:TreeNode, isExpand:boolean){
+    node.expanded = isExpand;
+    if(node.children){
+        node.children.forEach( childNode => {
+            this.expandRecursive(childNode, isExpand);
+        } );
+    }
+  }
+
+  public static arrayUnique(array) {
+    var a = array.concat();
+    for(var i=0; i<a.length; ++i) {
+        for(var j=i+1; j<a.length; ++j) {
+            if(a[i] === a[j])
+                a.splice(j--, 1);
+        }
+    }
+    return a;
   }
 }

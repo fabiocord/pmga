@@ -28,9 +28,6 @@ namespace pmga.Data.Infrastructure.Data
             modelBuilder.Entity<UserPermission>().HasKey(up =>
               new { up.UserId, up.PermissionId });  
 
-            modelBuilder.Entity<UserRole>().HasKey(ur =>
-              new { ur.UserId, ur.RoleId });    
-
             modelBuilder.Entity<RolePermission>().HasKey(rp =>
               new { rp.RoleId, rp.PermissionId});      
         }

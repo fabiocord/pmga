@@ -21,7 +21,7 @@ export interface User {
     facebookId    :   number;         
     password      :   string;
     permissions   :   Permission[];
-    roles         :   Role[];
+    role         :   Role;
 }
 
 export interface SaveUser {
@@ -45,7 +45,7 @@ export interface SaveUser {
     facebookId    :   number;         
     password      :   string;
     permissions   :   number[];
-    roles         :   number[];
+    roleId        :   number;
 }
 
 

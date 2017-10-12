@@ -27,11 +27,10 @@ export class UserFormComponent implements OnInit {
 
   ptbr: any;
   msgs: Message[] = [];
-  permissions: number[] = [];
-  selectedRoles: any[] = [];
-  selectedNodes: TreeNode[] = [];
-  nodes: TreeNode[] = [];
+  // selectedPermissions: number[] = [];
+  selectedRole: any;
   group: any = {};
+  isEditLoaded: boolean = false;
   @Input() user: any;
   @Input() documentoOld: string;
   @Input() emailOld: string;
@@ -48,17 +47,11 @@ export class UserFormComponent implements OnInit {
     private ngZone: NgZone,
     private formBuilder: FormBuilder,
   ) {
-    this.populateDefaultPermissions();    
-  }
-
-  populateDefaultPermissions() {
-    this.permissionService.getPermissions()
-      .subscribe(result => {
-        this.nodes = this.permissionService.transformToNodeList(result);
-      });
+    
   }
 
   ngOnInit() {
+    this.isEditLoaded = false;
     this.ptbr = {
       firstDayOfWeek: 0,
       dayNames: ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado'],
@@ -88,8 +81,8 @@ export class UserFormComponent implements OnInit {
           'uf': ['', Validators.required],
           'cidade': ['', Validators.required],
           'confirmEmail': ['', Validators.required],
-          'active': ['', Validators.required],
-          'roles': [''],
+          'active': ['', Validators.required],          
+          'roles': ['', Validators.required],
         };
     
         this.userForm = this.formBuilder.group(this.group);
@@ -103,23 +96,13 @@ export class UserFormComponent implements OnInit {
     }
   }
 
-
-  setEditValues(p) {        
-    if (this.user.roles) {
-      p.roles.forEach(element => {
-        var role = this.roleService.getRole(element).subscribe(data => {
-          var valorInput = { id: data.id, nome: data.nome, permissions: data.permissions }
-          this.selectedRoles.push(valorInput);
-        });
+  setEditValues(p) {    
+    if (this.user.roleId > 0) {      
+      var role = this.roleService.getRole(this.user.roleId).subscribe(data => {
+          this.selectedRole = data.id;   
+          this.isEditLoaded = true;   
       });
     }
-
-    if (this.user.permissions) {
-      this.permissions = this.user.permissions;
-      this.populateDefaultPermissions();
-      this.populatePermissionsTab(this.permissions);
-    }
-
 
     this.documentoOld = this.user.documento;
     this.emailOld = this.user.email;
@@ -146,35 +129,8 @@ export class UserFormComponent implements OnInit {
     });
   }
 
-  populatePermissionsTab($event) {
-    this.selectedNodes = [];
-    this.permissions = $event.permissions;
-    this.user.permissions = this.permissions;
-    this.setPermissions(this.permissions);
-  }
-
-  setUserRoles($event) {
-    this.user.roles = [];
-    $event.roles.forEach(element => {
-      this.user.roles.push(element.id);
-    });
-  }
-
-  setPermissions(p) {
-    p.forEach(element => {
-      this.findRecursiveNode(this.nodes, element);
-    });
-  }
-
-  findRecursiveNode(nodes, id) {
-    for (var element of nodes) {
-      if (element.data.id == id) {
-        this.selectedNodes.push(element);
-        break;
-      }
-      if (element.children)
-        this.findRecursiveNode(element.children, id)
-    }
+  setUserRole($event) {
+    this.user.roleId = $event.roleId;    
   }
 
   buscaCep() {
@@ -188,18 +144,7 @@ export class UserFormComponent implements OnInit {
 
   }
 
-  setNodesSelected($event) {
-    this.permissions = [];
-    this.selectedNodes = $event.selectedNodes;
-    this.selectedNodes.forEach(element => {
-      this.permissions.push(element.data.id);
-    });
-  }
-
   closeModal() {
-    // this.user = null;
-    // this.documentoOld = "";
-    // this.emailOld = "";
     this.activeModal.close();
   }
 

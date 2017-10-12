@@ -8,9 +8,10 @@ using pmga.Data.Infrastructure.Data;
 namespace pmga.Data.Migrations
 {
     [DbContext(typeof(PmgaDbContext))]
-    partial class PmgaDbContextModelSnapshot : ModelSnapshot
+    [Migration("20171010201657_modificacaoUserRole2")]
+    partial class modificacaoUserRole2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.1.2")

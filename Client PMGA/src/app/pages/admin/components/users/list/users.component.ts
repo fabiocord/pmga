@@ -1,3 +1,4 @@
+import { Role } from './../../../../../models/Roles';
 import { SaveUser } from './../../../../../models/User';
 import { UserFormComponent } from './../form/user-form.component';
 import { UserService } from './../../../../../services/user.service';
@@ -24,7 +25,7 @@ export class UsersComponent implements OnInit {
   title = "Lista de Usuários"; 
   
   user: SaveUser = {
-    id: -1,
+    id: 0,
     nome: '',
     email: '',
     dataNascimento: new Date(),
@@ -44,7 +45,7 @@ export class UsersComponent implements OnInit {
     facebookId: 0,
     password: '',
     permissions: [],
-    roles: [],
+    roleId: 0,
   };
 
   
@@ -177,7 +178,8 @@ export class UsersComponent implements OnInit {
   
   onInclude(){
       const activeModal = this.modalService.open(UserFormComponent, { size: 'lg' });       
-      activeModal.componentInstance.modalHeader = 'Inclusão de Usuários';              
+      activeModal.componentInstance.modalHeader = 'Inclusão de Usuários'; 
+      this.setInitialUser();
       activeModal.componentInstance.user = this.user;
       activeModal.componentInstance.documentoOld = "";
       activeModal.componentInstance.emailOld = "";
@@ -247,22 +249,45 @@ export class UsersComponent implements OnInit {
     this.user.nome = p.nome;
     this.user.createDate = new Date(p.createDate);
     this.user.active = p.active;
-    this.user.email = p.email,
-    this.user.dataNascimento = new Date(p.dataNascimento),
-    this.user.documento = p.documento,
-    this.user.telefone1 = p.telefone1,
-    this.user.telefone2 = p.telefone2,
-    this.user.cep = p.cep,
-    this.user.bairro = p.bairro,
-    this.user.logradouro = p.logradouro,
-    this.user.complemento = p.complemento,
-    this.user.uf = p.uf,
-    this.user.cidade = p.cidade,
-    this.user.confirmEmail = p.confirmEmail,
-    this.user.lastAccess = new Date(),
-    this.user.facebookId = p.facebookId,
-    this.user.password = p.password,
+    this.user.email = p.email;
+    this.user.dataNascimento = new Date(p.dataNascimento);
+    this.user.documento = p.documento;
+    this.user.telefone1 = p.telefone1;
+    this.user.telefone2 = p.telefone2;
+    this.user.cep = p.cep;
+    this.user.bairro = p.bairro;
+    this.user.logradouro = p.logradouro;
+    this.user.complemento = p.complemento;
+    this.user.uf = p.uf;
+    this.user.cidade = p.cidade;
+    this.user.confirmEmail = p.confirmEmail;
+    this.user.lastAccess = new Date();
+    this.user.facebookId = p.facebookId;
+    this.user.password = p.password;
     this.user.permissions = _.pluck(p.permissions, 'id');
-    this.user.roles = _.pluck(p.roles, 'id');        
+    this.user.roleId =p.role.id;        
+  }
+  setInitialUser() {
+    this.user.id= 0;
+    this.user.nome= '';
+    this.user.email= '';
+    this.user.dataNascimento= new Date();
+    this.user.documento= '';
+    this.user.telefone1= '';
+    this.user.telefone2= '';
+    this.user.cep= '';
+    this.user.bairro= '';;
+    this.user.logradouro= '';
+    this.user.complemento= '';
+    this.user.uf= '';
+    this.user.cidade= '';
+    this.user.confirmEmail= false;
+    this.user.active= false;
+    this.user.createDate= new Date();
+    this.user.lastAccess= new Date();
+    this.user.facebookId= 0;
+    this.user.password= '';
+    this.user.permissions= [];
+    this.user.roleId= 0;
   }
 }

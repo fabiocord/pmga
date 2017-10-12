@@ -26,12 +26,11 @@ namespace pmga.Controllers.Resources.Authentication
         public int FacebookId { get; set; }
         public string Password { get; set; }
         public ICollection<PermissionResource> Permissions {get; set;}
-        public ICollection<RoleResource> Roles {get; set;}
+        public RoleResource Role {get; set;}
 
         public UserResource()
         {
             Permissions = new Collection<PermissionResource>();            
-            Roles = new Collection<RoleResource>();
         }
     }
 }

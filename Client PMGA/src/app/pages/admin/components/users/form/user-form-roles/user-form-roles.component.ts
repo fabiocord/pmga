@@ -1,8 +1,10 @@
+import { UtilsService } from './../../../../../../utils/utils';
 import { PermissionService } from './../../../../../../services/permission.service';
 import { RoleService } from './../../../../../../services/role.service';
 import { Role } from './../../../../../../models/Roles';
 import { SelectItem, TreeNode } from 'primeng/primeng';
 import { Component, OnInit, Output, EventEmitter, Input, NgZone } from '@angular/core';
+import * as _ from 'underscore'; 
 
 @Component({
   selector: 'app-user-form-roles',
@@ -11,140 +13,95 @@ import { Component, OnInit, Output, EventEmitter, Input, NgZone } from '@angular
 })
 export class UserFormRolesComponent implements OnInit {
 
-  @Input() selectedRoles: any[];  
-  @Output() populatePermissionsTab : EventEmitter<any> = new EventEmitter<any>();
-  @Output() setUserRoles : EventEmitter<any> = new EventEmitter<any>();
-  
-  rolesPermissions : any[] = [];    
-  roles: SelectItem[];  
+  @Input() group: any;
+  @Input() selectedRole: any;
+  @Input() selectedPermissions  : any[];
+  @Output() setUserRole : EventEmitter<any> = new EventEmitter<any>();
+  @Output() setUserPermissions : EventEmitter<any> = new EventEmitter<any>();
+    
+  roles: Role[];  
   nodes: any[] = []; 
-  selectedNodes: TreeNode[] = [];
-  selectedNodesConsolidado: TreeNode[] = [];
+  selectedNodes: TreeNode[] = [];  
   permissions: any[] = [];
   
   constructor(private roleService: RoleService,
   private permissionService : PermissionService,
   private ngZone: NgZone,) {
-    this.populateRoles();
-    this.populatePermissions();      
+    this.populateRoles();   
+    this.populateDefaultPermissions();         
   }  
 
-  ngOnInit() {   
-    this.populateRolePermissions();
-  }
-  
   private populateRoles(){
     this.roleService.getRoles(null)
-    .subscribe(result => {     
-      this.roles = this.roleService.transformToResultList(result.items);          
+    .subscribe(result => {                  
+      this.roles = result.items;          
     });     
   } 
 
-  private populatePermissions(){
+  populateDefaultPermissions() {
     this.permissionService.getPermissions()
-    .subscribe(result => {     
-      this.nodes = this.permissionService.transformToNodeList(result);          
-      this.populateRolePermissions();
-    });     
-  } 
-
-  createNodes(){     
-    
-    this.selectedNodesConsolidado = [];
-    //this.selectedRoles = [];
-    this.populateRolePermissions();    
-    
-    this.setUserRoles.emit({roles : this.selectedRoles});
-  }
-
-  populateRolePermissions(){
-    this.rolesPermissions = []; 
-    
-    let role = null;
-    if (this.selectedRoles)
-    {  
-      this.selectedRoles.forEach(element => {
-        this.selectedNodes = [];        
-        this.setNodes(element.permissions);
-        this.selectedNodes = this.expandaAll(this.selectedNodes);
-        this.rolesPermissions.push({id: element.id,nome: element.nome, nodes: this.selectedNodes});
-        this.selectedNodesConsolidado = this.arrayUnique(this.selectedNodesConsolidado);    
-        this.permissions = this.arrayUnique(this.permissions);  
+      .subscribe(result => {
+        this.nodes = UtilsService.expandaAll(this.permissionService.transformToNodeList(result));
+        this.populatePermissions();
       });
-      this.populatePermissionsTab.emit({permissions: this.permissions, selectedNodes: this.selectedNodesConsolidado});
-    }
   }
 
-  expandaAll(nodes){
-    nodes.forEach( node => {
-      this.expandRecursive(node, true);
-    } );
-    return nodes;
+  ngOnInit() {   
+   
   }
 
-  private expandRecursive(node:TreeNode, isExpand:boolean){
-    node.expanded = isExpand;
-    if(node.children){
-        node.children.forEach( childNode => {
-            this.expandRecursive(childNode, isExpand);
-        } );
+  populatePermissions()
+  {
+    if (this.selectedPermissions)
+    {
+      this.setPermissions(this.selectedPermissions);
     }
-}
-
-  arrayUnique(array) {
-    var a = array.concat();
-    for(var i=0; i<a.length; ++i) {
-        for(var j=i+1; j<a.length; ++j) {
-            if(a[i] === a[j])
-                a.splice(j--, 1);
-        }
-    }
-    return a;
-}
-
+  }
   
-  setNodes(p){
+  populateRolePermissions(){        
+    
+    if (this.selectedRole)
+    {      
+      this.roleService.getRole(this.selectedRole)
+      .subscribe(result => { 
+        if(result.nome != "Custom")
+        {
+          if (result.permissions)
+          {
+            var permissions = _.pluck(result.permissions, 'id'); 
+            this.setPermissions(permissions);
+          }            
+        }
+      });    
+    }
+  }
+
+  setPermissions(p){
     p.forEach(element => {      
-      this.findRecursiveNode(this.nodes,element.id);
-      this.permissions.push(element.id);
+      this.selectedNodes = UtilsService.findRecursiveNode(this.nodes,element,this.selectedNodes);
     });
   }
 
-  findRecursiveNode(nodes,id) {    
-    for(var element of nodes)
-    {
-      if (element.data.id == id){ 
-         this.selectedNodesConsolidado.push(element); 
-         if(!this.findExistInSelectNodeRecursive(this.selectedNodes,id))
-          {            
-            this.selectedNodes.push(element);            
-          }
-          break;
-      }        
-      if (element.children)
-        this.findRecursiveNode(element.children,id)
-    }    
+  
+  //evento Role
+  createNodes(){  
+    this.selectedNodes = [];    
+    this.populateRolePermissions();    
+    this.setUserRole.emit({roleId : this.selectedRole});
   }
 
-  findExistInSelectNodeRecursive(nodes,id,retorno = false)
-  { 
-    var retorno = retorno; 
-    for (var element of nodes)
-    {
-      if (element.data.id == id){          
-        retorno = true;
-        break;        
-      } else {
-        
-        if (element.children){
-          retorno = this.findExistInSelectNodeRecursive(element.children,id,retorno);
-          if (retorno)
-            break;
-        }    
-          
-      }
-    }
-    return retorno;
-  }
+
+  //evento Permissoes  
+  setNodesSelected($event)
+  {
+    this.permissions = [];
+    this.selectedRole = 7;
+    $event.selectedNodes.forEach(element => {
+      this.permissions.push(element.data.id);  
+    });
+    this.setUserPermissions.emit({permissions: this.permissions});
+  }     
+
+ 
 
 }

@@ -7042,10 +7042,10 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\Desenvolvimento\\Trabalho\\PMGA\\pmga.Core\\pmga.Core.csproj",
+      "projectUniqueName": "E:\\Desenvolvimento\\Trabalho\\ProjetoBaseZero\\pmga\\PMGA\\pmga.Core\\pmga.Core.csproj",
       "projectName": "pmga.Core",
-      "projectPath": "E:\\Desenvolvimento\\Trabalho\\PMGA\\pmga.Core\\pmga.Core.csproj",
-      "outputPath": "E:\\Desenvolvimento\\Trabalho\\PMGA\\pmga.Core\\obj\\",
+      "projectPath": "E:\\Desenvolvimento\\Trabalho\\ProjetoBaseZero\\pmga\\PMGA\\pmga.Core\\pmga.Core.csproj",
+      "outputPath": "E:\\Desenvolvimento\\Trabalho\\ProjetoBaseZero\\pmga\\PMGA\\pmga.Core\\obj\\",
       "projectStyle": "PackageReference",
       "originalTargetFrameworks": [
         "netcoreapp1.1"

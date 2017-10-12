@@ -14,7 +14,7 @@ import { NgaModule } from './../../theme/nga.module';
 import { NgbModalModule} from '@ng-bootstrap/ng-bootstrap';
 import { AppTranslationModule } from './../../app.translation.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ConfirmDialogModule, GrowlModule, InputMaskModule, MultiSelectModule } from 'primeng/primeng';
+import { ConfirmDialogModule, GrowlModule, InputMaskModule, DropdownModule } from 'primeng/primeng';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -42,9 +42,6 @@ import { routing } from './admin.routing';
 import { TabViewModule } from "primeng/components/tabview/tabview";
 import { UserFormComponent } from './components/users/form/user-form.component';
 import { UserFormRolesComponent } from './components/users/form/user-form-roles/user-form-roles.component';
-import { UserFormPermissionsComponent } from './components/users/form/user-form-permissions/user-form-permissions.component';
-
-
 
 
 @NgModule({
@@ -64,7 +61,8 @@ import { UserFormPermissionsComponent } from './components/users/form/user-form-
     TabViewModule,
     InputMaskModule,
     ReactiveFormsModule,
-    MultiSelectModule
+    DropdownModule,
+    
     
   ],
   declarations: [
@@ -80,8 +78,7 @@ import { UserFormPermissionsComponent } from './components/users/form/user-form-
     GenericTreeViewChecksComponent,
     UserFormComponent,
     ControlMessagesComponent,
-    UserFormRolesComponent,
-    UserFormPermissionsComponent    
+    UserFormRolesComponent,    
   ],
   entryComponents: [
     PermissionsFormComponent,
