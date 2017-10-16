@@ -1,0 +1,8 @@
+E:\Desenvolvimento\Trabalho\ProjetoBaseZero\pmga\PMGA\pmga.Core\bin\Debug\netcoreapp2.0\pmga.Core.deps.json
+E:\Desenvolvimento\Trabalho\ProjetoBaseZero\pmga\PMGA\pmga.Core\bin\Debug\netcoreapp2.0\pmga.Core.dll
+E:\Desenvolvimento\Trabalho\ProjetoBaseZero\pmga\PMGA\pmga.Core\bin\Debug\netcoreapp2.0\pmga.Core.pdb
+E:\Desenvolvimento\Trabalho\ProjetoBaseZero\pmga\PMGA\pmga.Core\obj\Debug\netcoreapp2.0\pmga.Core.csproj.CoreCompileInputs.cache
+E:\Desenvolvimento\Trabalho\ProjetoBaseZero\pmga\PMGA\pmga.Core\obj\Debug\netcoreapp2.0\pmga.Core.AssemblyInfoInputs.cache
+E:\Desenvolvimento\Trabalho\ProjetoBaseZero\pmga\PMGA\pmga.Core\obj\Debug\netcoreapp2.0\pmga.Core.AssemblyInfo.cs
+E:\Desenvolvimento\Trabalho\ProjetoBaseZero\pmga\PMGA\pmga.Core\obj\Debug\netcoreapp2.0\pmga.Core.dll
+E:\Desenvolvimento\Trabalho\ProjetoBaseZero\pmga\PMGA\pmga.Core\obj\Debug\netcoreapp2.0\pmga.Core.pdb
